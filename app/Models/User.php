@@ -42,4 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    function adminlte_image()
+    {
+        return 'https://picsum.photos/300/300';
+    }
+
+    function adminlte_desc()
+    {
+        return 'That\'s a nice guy';
+    }
+
+    function adminlte_profile_url()
+    {
+        return 'profile/username';
+    }
 }
