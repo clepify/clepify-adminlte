@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'CLEPify',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>CLEP</b>ify',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -259,7 +259,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -295,7 +295,7 @@ return [
             'type'         => 'navbar-notification',
             'id'           => 'my-notification',      // An ID attribute (required).
             'icon'         => 'fas fa-bell',          // A font awesome icon (required).
-            'icon_color'   => 'warning',              // The initial icon color (optional).
+            'icon_color'   => 'info',              // The initial icon color (optional).
             'label'        => 0,                      // The initial label for the badge (optional).
             'label_color'  => 'danger',               // The initial badge color (optional).
             'url'          => 'notifications/show',   // The url to access all notifications/elements (required).
@@ -317,8 +317,6 @@ return [
             'text'        => 'Surat Aktif',
             'url'         => 'letters',
             'icon'        => 'fas fa-fw fa-file',
-            // 'label'       => 4,
-            // 'label_color' => 'success',
         ],
         [
             'text' => 'Arsip Surat',
@@ -336,44 +334,6 @@ return [
             'url'  => 'settings',
             'icon' => 'fas fa-fw fa-cogs',
         ]
-        // [
-        //     'text'    => 'multilevel',
-        //     'icon'    => 'fas fa-fw fa-share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'level_one',
-        //             'url'  => '#',
-        //         ],
-        //         [
-        //             'text'    => 'level_one',
-        //             'url'     => '#',
-        //             'submenu' => [
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url'  => '#',
-        //                 ],
-        //                 [
-        //                     'text'    => 'level_two',
-        //                     'url'     => '#',
-        //                     'submenu' => [
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url'  => '#',
-        //                         ],
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url'  => '#',
-        //                         ],
-        //                     ],
-        //                 ],
-        //             ],
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url'  => '#',
-        //         ],
-        //     ],
-        // ],
     ],
 
     /*

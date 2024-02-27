@@ -11,6 +11,12 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        @if(Session::has('account_deactivated'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('account_deactivated') }}
+                            </div>
+                        @endif
+
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
