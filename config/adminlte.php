@@ -16,7 +16,7 @@ return [
 
     'title' => 'CLEPify',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => '- CLEPify',
 
     /*
     |--------------------------------------------------------------------------
