@@ -15,11 +15,11 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('contact');
-            $table->string('gender');
-            $table->string('address');
-            $table->string('study_program');
-            $table->string('class');
+            $table->string('contact')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('address')->nullable();
+            $table->string('study_program')->nullable();
+            $table->string('class')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
