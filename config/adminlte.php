@@ -325,9 +325,20 @@ return [
         ],
         ['header' => 'ADMIN'],
         [
-            'text' => 'Pengguna',
-            'url'  => 'users',
-            'icon' => 'fas fa-fw fa-users',
+            'text'    => 'User Management',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Students',
+                    'icon' => 'fas fa-fw fa-user',
+                    'url'  => 'students',
+                ],
+                [
+                    'text' => 'Lecturers',
+                    'icon' => 'fas fa-fw fa-user-tie', // 'fas fa-fw fa-user-tie
+                    'url'  => 'lecturers',
+                ],
+            ],
         ],
         [
             'text' => 'Pengaturan',

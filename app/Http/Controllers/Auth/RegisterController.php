@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -49,9 +50,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'nim' => ['required', 'string', 'max:10', 'unique:students,id'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            'study_program' => ['required', 'string', 'max:255'],
+            'class' => ['required', 'string', 'max:255'],
+            'contact' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -63,11 +69,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'is_active' => 1,
         ]);
+
+        Student::create([
+            'id' => $data['nim'],
+            'user_id' => $user->id,
+            'name' => $data['name'],
+            'contact' => $data['contact'],
+            'gender' => $data['gender'],
+            'study_program' => $data['study_program'],
+            'class' => $data['class'],
+        ]);
+
+        $user->assignRole('student');
+
+        return $user;
     }
 }

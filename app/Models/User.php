@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Lecturer;
+use App\Models\Student;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -58,5 +60,15 @@ class User extends Authenticatable
     function adminlte_profile_url()
     {
         return 'profile/username';
+    }
+
+    public function lecturer()
+    {
+        return $this->hasOne(Lecturer::class);
+    }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
     }
 }

@@ -1,47 +1,55 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+    <div class="col-12 col-lg-5">
+        <div class="card border-0 rounded-4">
+        <div class="card-body p-4 p-xl-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-4">
+                        <h3><b>Reset Password</b></h3>
+                        @if(Session::has('account_deactivated'))
+                            <div class="alert alert-danger mt-3" role="alert">
+                                {{ Session::get('account_deactivated') }}
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+                        @endif
+                        @error('email')
+                            <div class="alert alert-danger mt-3" role="alert">
+                                {{ $message }}
                             </div>
+                        @enderror
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <div class="row gy-3 overflow-hidden">
+                    <div class="col-12">
+                        <div class="form-floating mb-4">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ old('email') }}" autocomplete="email" required autofocus>
+                            <label for="email" class="form-label">Email Address</label>
                         </div>
-                    </form>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" type="submit">Send Password Reset Link</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end mt-4">
+                        <a class="btn btn-link" href="{{ route('login') }}">
+                            Back to login
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
-</div>
 @endsection
